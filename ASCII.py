@@ -188,12 +188,29 @@ def menu_texto_artistico():
     print("3. Tabla de Multiplicar")
     print("4. Volver al menú principal")
 
-    # TODO: Implementar lógica del menú
-
-    pass  # Reemplazar con su código
+    opcion = input("Seleccione una opción: ")
+    if opcion == "1":
+        texto = input("Ingrese el texto para el banner: ") 
+        generar_banner(texto)
+    elif opcion == "2":
+        texto = input("Ingrese el texto para el marco: ")
+        print("Estilos disponibles:")
+        print("1. Estilo Clásico")
+        print("2. Estilo Estrella")
+        print("3. Estilo Asterisco")
+        estilo = int(input("Seleccione un estilo (1-3): "))
+        marco_decorativo(texto, estilo)
+    elif opcion == "3":
+        numero = int(input("Ingrese el número para la tabla de multiplicar (1-10): "))
+        tabla_multiplicar_visual(numero)
+    elif opcion == "4":
+        return  # Volver al menú principal
+    else:
+        print("Opción no válida. Por favor, seleccione una opción válida.")
 
 
 # ============================================
+
 # SECCIÓN 4: ANIMACIONES (Estudiante 3)
 # ============================================
 
@@ -301,16 +318,16 @@ def main():
             menu_patrones()
         elif opcion == "2":
             print("\n--- GENERADOR DE BANNER ---")
-            # TODO: Solicitar texto y generar banner
-            pass
+            texto = input("Ingrese el texto para el banner: ")
+            generar_banner(texto)
         elif opcion == "3":
             menu_texto_artistico()
         elif opcion == "4":
             menu_animaciones()
         elif opcion == "5":
             print("\n--- TABLA DE MULTIPLICAR VISUAL ---")
-            # TODO: Solicitar número y generar tabla
-            pass
+            numero = int(input("Ingrese el número para la tabla de multiplicar (1-10): "))
+            tabla_multiplicar_visual(numero)
         elif opcion == "6":
             print("\n" + "="*60)
             print("  ¡Gracias por visitar la Galería de Arte ASCII!")
