@@ -221,51 +221,30 @@ def crear_retraso(duracion):
     Args:
         duracion (int): Factor de duración (más alto = más lento)
     """
-    # TODO: Implementar retraso
-    # Usar un loop for que no haga nada
-    # Ejemplo: for _ in range(duracion * 100000):
-    #              pass
-
-    pass  # Reemplazar con su código
+    for _ in range(duracion * 100000):
+        pass    
+   
 
 
 def barra_progreso():
     """Muestra una barra de progreso animada"""
-    # TODO: Implementar barra de progreso
-    # - Usar un loop de 0 a 100
-    # - En cada iteración, mostrar la barra actualizada
-    # - Usar caracteres como █ ■ o # para la barra llena
-    # - Usar - o espacio para la parte vacía
-    # - Mostrar el porcentaje
-
-    # Ejemplo de salida:
-    # Procesando...
-    # [■■■■■■■■■■----------] 50%
-    # [■■■■■■■■■■■■■■■■----] 80%
-    # [■■■■■■■■■■■■■■■■■■■■] 100% ¡Completo!
-
-    # Pista: usar end="\r" en print para sobrescribir la misma línea
-
-    pass  # Reemplazar con su código
+    for i in range(101):
+        # Calcula el número de caracteres llenos y vacíos
+        llenos = "█" * (i // 5)  # Cada 5% es un bloque lleno
+        vacios = "-" * ((100 - i) // 5)  # El resto son bloques vacíos
+        print(f"\rProcesando... [{llenos}{vacios}] {i}%", end="")
+        crear_retraso(10)  # Ajusta la duración del retraso para controlar la velocidad
 
 
 def animacion_texto_movil():
     """Anima un texto moviéndose de izquierda a derecha"""
-    # TODO: Implementar animación de texto
-    # - Definir el texto a animar
-    # - Usar un loop para cada posición
-    # - En cada iteración, imprimir espacios + texto
-    # - Incrementar los espacios para simular movimiento
-    # - Limpiar la línea anterior con \r
+    texto = "¡Arte ASCII en Movimiento! "
+    ancho_pantalla = 50  # Ancho de la "pantalla" para el movimiento
 
-    # Ejemplo:
-    # ☆                (frame 1)
-    #  ☆               (frame 2)
-    #   ☆              (frame 3)
-    # ...
-
-    pass  # Reemplazar con su código
-
+    for i in range(ancho_pantalla):
+        espacios = " " * i  # Espacios para mover el texto
+        print(f"\r{espacios}{texto}", end="")
+        crear_retraso(5)  # Ajusta la duración del retraso para controlar la velocidad
 
 def menu_animaciones():
     """Menú para animaciones"""
@@ -274,9 +253,15 @@ def menu_animaciones():
     print("2. Texto en Movimiento")
     print("3. Volver al menú principal")
 
-    # TODO: Implementar lógica del menú
-
-    pass  # Reemplazar con su código
+    opcion = input("Seleccione una opción: ")
+    if opcion == "1":
+        barra_progreso()    
+    elif opcion == "2":
+        animacion_texto_movil()
+    elif opcion == "3":
+        return  # Volver al menú principal
+    else:
+        print("Opción no válida. Por favor, seleccione una opción válida.")
 
 
 # ============================================
