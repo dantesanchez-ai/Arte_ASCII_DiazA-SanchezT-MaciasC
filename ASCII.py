@@ -125,6 +125,12 @@ def generar_banner(texto):
     Args:
         texto (str): Texto a convertir en banner
     """
+    ancho = len(texto) + 4  # Ancho del banner (texto + espacios + bordes)
+    techo = "═" * ancho  # Línea superior e inferior del banner
+    print("╔" + techo + "╗")  # Esquina superior izquierda + techo + esquina superior derecha
+    print("║  " + texto + "  ║")  # Pared izquierda
+    print("╚" + techo + "╝")  # Esquina inferior izquierda + techo + esquina inferior derecha
+
     # TODO: Implementar banner grande
     # Opción simple: crear un marco alrededor del texto
     # Opción avanzada: convertir cada letra a ASCII art grande
@@ -136,7 +142,7 @@ def generar_banner(texto):
     # ║                      ║
     # ╚══════════════════════╝
 
-    pass  # Reemplazar con su código
+    
 
 
 def marco_decorativo(texto, estilo):
