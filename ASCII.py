@@ -60,18 +60,9 @@ def cuadrado(lado):
     if lado <= 1:
         print("*" * lado)
         return
-
-    # 1. Primera fila (techo): todo asteriscos
     print("*" * lado)
-
-    # 2. Filas del medio (paredes huecas)
-    # Usamos (lado - 2) porque ya dibujamos la primera línea y al final dibujaremos la última
     for i in range(lado - 2):
-        # Un asterisco + espacios en blanco + un asterisco
-        # La cantidad de espacios también es (lado - 2)
         print("*" + " " * (lado - 2) + "*")
-
-    # 3. Última fila (piso): todo asteriscos
     print("*" * lado)
     
 
@@ -130,18 +121,6 @@ def generar_banner(texto):
     print("╔" + techo + "╗")  # Esquina superior izquierda + techo + esquina superior derecha
     print("║  " + texto + "  ║")  # Pared izquierda
     print("╚" + techo + "╝")  # Esquina inferior izquierda + techo + esquina inferior derecha
-
-    # TODO: Implementar banner grande
-    # Opción simple: crear un marco alrededor del texto
-    # Opción avanzada: convertir cada letra a ASCII art grande
-
-    # Ejemplo simple:
-    # ╔══════════════════════╗
-    # ║                      ║
-    # ║     HOLA MUNDO       ║
-    # ║                      ║
-    # ╚══════════════════════╝
-
     
 
 
@@ -170,8 +149,7 @@ def marco_decorativo(texto, estilo):
         print("*  " + texto + "  *")
         print("*" + techo + "*")
     else:
-        print("Estilo no válido. Por favor, seleccione 1, 2 o 3.")
-    
+        print("Estilo no válido. Por favor, seleccione 1, 2 o 3.")   
 
 
 def tabla_multiplicar_visual(numero):
@@ -181,11 +159,16 @@ def tabla_multiplicar_visual(numero):
     Args:
         numero (int): Número para generar la tabla (1-10)
     """
-    # TODO: Implementar tabla decorada
-    # - Crear encabezado decorativo
-    # - Generar tabla del 1 al 10
-    # - Alinear números correctamente
-    # - Cerrar con pie decorativo
+    ancho = 20  # Ancho fijo para cada línea de la tabla
+    print("╔" + "═" * ancho + "╗")
+    titulo = f" TABLA DEL {numero} "
+    print("║" + titulo.center(ancho) + "║")
+    print("╠" + "═" * ancho + "╣")
+    for i in range(1, 11):
+        resultado = f"{numero} x {i} = {numero * i}"
+        print("║" + resultado.ljust(ancho) + "║")
+    print("╚" + "═" * ancho + "╝")
+
 
     # Ejemplo:
     # ╔════════════════════════╗
@@ -195,8 +178,6 @@ def tabla_multiplicar_visual(numero):
     # ║  5 x  2 = 10           ║
     # ║  ...                   ║
     # ╚════════════════════════╝
-
-    pass  # Reemplazar con su código
 
 
 def menu_texto_artistico():
