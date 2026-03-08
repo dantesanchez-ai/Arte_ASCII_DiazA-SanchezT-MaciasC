@@ -153,17 +153,25 @@ def marco_decorativo(texto, estilo):
         texto (str): Texto a enmarcar
         estilo (int): Tipo de estilo (1, 2, o 3)
     """
-    # TODO: Implementar diferentes estilos de marcos
-    # Estilo 1: Simple con ═ ║
-    # Estilo 2: Doble con bordes decorativos
-    # Estilo 3: Con asteriscos o caracteres especiales
-
-    # Caracteres útiles:
-    # ═ ║ ╔ ╗ ╚ ╝ (estilo 1)
-    # ★ ☆ (estilo 2)
-    # * # @ (estilo 3)
-
-    pass  # Reemplazar con su código
+    ancho = len(texto) + 4  # Ancho del marco (texto + espacios + bordes)
+    if estilo == 1:
+        techo = "═" * ancho
+        print("╔" + techo + "╗")
+        print("║  " + texto + "  ║")
+        print("╚" + techo + "╝")
+    elif estilo == 2:
+        techo = "★" * ancho
+        print("★" + techo + "★")
+        print("★  " + texto + "  ★")
+        print("★" + techo + "★")
+    elif estilo == 3:
+        techo = "*" * ancho
+        print("*" + techo + "*")
+        print("*  " + texto + "  *")
+        print("*" + techo + "*")
+    else:
+        print("Estilo no válido. Por favor, seleccione 1, 2 o 3.")
+    
 
 
 def tabla_multiplicar_visual(numero):
