@@ -3,9 +3,9 @@ Generador de Arte ASCII Animado
 Proyecto de Animación
 
 Equipo:
-- Estudiante 1: [Nombre] - Menú y Patrones Geométricos
-- Estudiante 2: [Nombre] - Generadores de Texto Artístico
-- Estudiante 3: [Nombre] - Animaciones
+- Estudiante 1: [Jorge Diaz Abarca] - Menú y Patrones Geométricos
+- Estudiante 2: [Luis Ignacio Macias Cejudo] - Generadores de Texto Artístico
+- Estudiante 3: [Dante Sanchez] - Animaciones
 
 Fecha: Febrero 2026
 Universidad de Guadalajara - Campus GDL
@@ -42,17 +42,10 @@ def triangulo(altura):
     Args:
         altura (int): Número de filas del triángulo
     """
-    # TODO: Implementar
-    # Usar un loop for con range(1, altura + 1)
-    # Cada fila debe tener i asteriscos
-    # Ejemplo: si altura=5
-    # *
-    # **
-    # ***
-    # ****
-    # *****
+    for i in range(1, altura + 1):
+        print("*" * i)
+    
 
-    pass  # Reemplazar con su código
 
 
 def cuadrado(lado):
@@ -62,18 +55,25 @@ def cuadrado(lado):
     Args:
         lado (int): Tamaño del lado del cuadrado
     """
-    # TODO: Implementar
-    # - Primera fila: todos asteriscos o símbolos
-    # - Filas del medio: símbolo, espacios, símbolo
-    # - Última fila: todos asteriscos o símbolos
-    # Ejemplo: cuadrado(5)
-    # *****
-    # *   *
-    # *   *
-    # *   *
-    # *****
 
-    pass  # Reemplazar con su código
+    # Caso especial: si el usuario pide un cuadrado de tamaño 1, solo imprimimos un asterisco y terminamos.
+    if lado <= 1:
+        print("*" * lado)
+        return
+
+    # 1. Primera fila (techo): todo asteriscos
+    print("*" * lado)
+
+    # 2. Filas del medio (paredes huecas)
+    # Usamos (lado - 2) porque ya dibujamos la primera línea y al final dibujaremos la última
+    for i in range(lado - 2):
+        # Un asterisco + espacios en blanco + un asterisco
+        # La cantidad de espacios también es (lado - 2)
+        print("*" + " " * (lado - 2) + "*")
+
+    # 3. Última fila (piso): todo asteriscos
+    print("*" * lado)
+    
 
 
 def piramide(altura):
@@ -83,35 +83,35 @@ def piramide(altura):
     Args:
         altura (int): Número de filas de la pirámide
     """
-    # TODO: Implementar
-    # Cada fila debe:
-    # - Tener espacios al inicio para centrar: (altura - i) espacios
-    # - Tener asteriscos: 2*i - 1 asteriscos
-    # Ejemplo: piramide(5)
-    #     *
-    #    ***
-    #   *****
-    #  *******
-    # *********
-
-    pass  # Reemplazar con su código
+    for i in range(1, altura + 1):
+         espacios = " " * (altura - i)  # Espacios para centrar
+         asteriscos = "*" * (2 * i - 1)  # Asteriscos para la fila actual
+         print(espacios + asteriscos)  # Imprime la fila completa
 
 
 def menu_patrones():
     """Menú para seleccionar patrones geométricos"""
-    print("\n--- PATRONES GEOMÉTRICOS ---")
-    print("1. Triángulo")
-    print("2. Cuadrado")
-    print("3. Pirámide")
-    print("4. Volver al menú principal")
-
-    # TODO: Implementar lógica del menú
-    # - Solicitar opción al usuario
-    # - Pedir tamaño del patrón
-    # - Llamar a la función correspondiente
-    # - Preguntar si desea ver otro patrón
-
-    pass  # Reemplazar con su código
+    continuar = True
+    while continuar:
+        print("\n--- PATRONES GEOMÉTRICOS ---")
+        print("1. Triángulo")
+        print("2. Cuadrado")
+        print("3. Pirámide")
+        print("4. Volver al menú principal")
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            altura = int(input("Ingrese la altura del triángulo: "))
+            triangulo(altura)
+        elif opcion == "2":
+            lado = int(input("Ingrese el tamaño del cuadrado: "))
+            cuadrado(lado)
+        elif opcion == "3":
+            altura = int(input("Ingrese la altura de la pirámide: "))
+            piramide(altura)
+        elif opcion == "4":
+            continuar = False
+        else:
+            print("Opción no válida. Por favor, seleccione una opción válida.")
 
 
 # ============================================
