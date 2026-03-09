@@ -15,14 +15,14 @@ Este proyecto fue desarrollado como parte del curso de Programación en Python e
 | Nombre | Rol | GitHub |
 |--------|-----|--------|
 | [Jorge Días Abarca] | Estructura Principal | [@jorgediaz6253] (https://github.com/jorgediaz6253-cloud) |
-| [Dante Joaquín Sánchez Troncozo] | Gestión de datos | [@dantesanchez-ai] (https://github.com/dantesanchez-ai) |
+| [Dante Joaquín Sánchez Troncozo] | Gestión de carpetas, función de guardado y testing | [@dantesanchez-ai] (https://github.com/dantesanchez-ai) |
 | [Luis Ignacio Macías Cejudo] | Funciones adicionales | [@Luis780Macias](https://github.com/Luis780Macias) |
 
 ## ✨ Características
 
 1. **Menú de Galería Interactivo**
-   - Mostrar al menos 6 opciones de arte/animación
-   - Permitir al usuario seleccionar qué ver
+   - Muestra 7 opciones de arte/animación
+   - Permite al usuario seleccionar qué ver
    - Opción para regresar al menú
    - Loop continuo hasta que el usuario decida salir
 
@@ -30,7 +30,6 @@ Este proyecto fue desarrollado como parte del curso de Programación en Python e
    - `generar_triangulo(altura)` - Triángulo de caracteres
    - `generar_cuadrado(lado)` - Cuadrado con bordes
    - `generar_piramide(altura)` - Pirámide centrada
-   - Cada función debe recibir parámetros y retornar el string del arte
 
 3. **Dos Funciones de Texto Artístico**
    - `generar_banner(texto)` - Banner con nombre del usuario
@@ -89,7 +88,7 @@ proyecto/
 ├── README.md
 ├── ASCII.py
 ├── datos/
-│   ├── x.txt
+│   ├── galeria.txt
 ├── .gitignore
 └── ejemplos/
     └── screenshots/
@@ -99,12 +98,12 @@ proyecto/
 
 El programa utiliza los siguientes archivos de datos:
 
-- `datos/historial.txt` - [Guarda las últimas 10 operaciones]
+- `datos/galeria.txt` - [Guarda las creaciones del usuario]
 
 ### Formato de datos:
 
-**Archivo CSV:**
-```Fecha y hora de operación | Tipo de operación: Datos ingresados = Resultado calculado
+**Archivo TXT:**
+```TIpo de creación | Creación
 ```
 
 ## 🎯 Funcionalidades Principales
