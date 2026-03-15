@@ -130,23 +130,28 @@ def menu_patrones():
 
 def generar_banner(texto):
     """
-    Genera un banner con el texto ingresado.
+    Genera un banner destacado con el texto ingresado en mayúsculas.
 
     Args:
         texto (str): Texto a convertir en banner
     """
-    ancho = len(texto) + 4  # Ancho del banner (texto + espacios + bordes)
+    texto_mayus = texto.upper()  # Convertimos a mayúsculas para darle más impacto
+    ancho = len(texto_mayus) + 4  # Ancho del banner (texto + espacios + bordes)
     techo = "═" * ancho  # Línea superior e inferior del banner
+    
     contenido = ""
     linea1 = "╔" + techo + "╗"
-    print(linea1)  # Esquina superior izquierda + techo + esquina superior derecha
+    print(linea1)
     contenido += linea1 + "\n"
-    linea2 = "║  " + texto + "  ║"
-    print(linea2)  # Pared izquierda
+    
+    linea2 = "║  " + texto_mayus + "  ║"
+    print(linea2)
     contenido += linea2 + "\n"
+    
     linea3 = "╚" + techo + "╝"
-    print(linea3)  # Esquina inferior izquierda + techo + esquina inferior derecha
+    print(linea3)
     contenido += linea3 + "\n"
+    
     guardar_creacion("Banner", contenido)
     
 
@@ -157,10 +162,11 @@ def marco_decorativo(texto, estilo):
 
     Args:
         texto (str): Texto a enmarcar
-        estilo (int): Tipo de estilo (1, 2, o 3)
+        estilo (int): Tipo de estilo (1, 2, 3 o 4)
     """
     ancho = len(texto) + 4  # Ancho del marco (texto + espacios + bordes)
     contenido = ""
+    
     if estilo == 1:
         techo = "═" * ancho
         linea1 = "╔" + techo + "╗"
@@ -188,17 +194,29 @@ def marco_decorativo(texto, estilo):
         linea1 = "*" + techo + "*"
         print(linea1)
         contenido += linea1 + "\n"
-        linea2 = "*  " + texto + "  *"
+        linea2 = "* " + texto + "  *"
         print(linea2)
         contenido += linea2 + "\n"
         linea3 = "*" + techo + "*"
         print(linea3)
         contenido += linea3 + "\n"
+    elif estilo == 4:
+        techo = "♦" * ancho
+        linea1 = "♦" + techo + "♦"
+        print(linea1)
+        contenido += linea1 + "\n"
+        # Aplicamos jerarquía visual poniendo el texto en mayúsculas
+        linea2 = "♦  " + texto.upper() + "  ♦"
+        print(linea2)
+        contenido += linea2 + "\n"
+        linea3 = "♦" + techo + "♦"
+        print(linea3)
+        contenido += linea3 + "\n"
     else:
-        print("Estilo no válido. Por favor, seleccione 1, 2 o 3.")
+        print("Estilo no válido. Por favor, seleccione 1, 2, 3 o 4.")
         return
-    guardar_creacion("Marco Decorativo", contenido)   
-
+        
+    guardar_creacion("Marco Decorativo", contenido)
 
 def tabla_multiplicar_visual(numero):
     """
