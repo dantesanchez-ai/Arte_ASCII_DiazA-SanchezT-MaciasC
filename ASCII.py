@@ -221,31 +221,48 @@ def marco_decorativo(texto, estilo):
 
 def tabla_multiplicar_visual(numero):
     """
-    Genera una tabla de multiplicar con formato visual atractivo.
+    Genera una tabla de multiplicar con formato de retícula.
 
     Args:
         numero (int): Número para generar la tabla (1-10)
     """
-    ancho = 20  # Ancho fijo para cada línea de la tabla
+    ancho_col1 = 11  # Espacio para "10 x 10"
+    ancho_col2 = 6   # Espacio para el resultado
+    ancho_total = ancho_col1 + ancho_col2 + 1 # +1 por la línea divisoria central
+    
     contenido = ""
-    linea1 = "╔" + "═" * ancho + "╗"
+    
+    # Techo de la tabla
+    linea1 = "╔" + "═" * ancho_total + "╗"
     print(linea1)
     contenido += linea1 + "\n"
+    
+    # Título centrado
     titulo = f" TABLA DEL {numero} "
-    linea2 = "║" + titulo.center(ancho) + "║"
+    linea2 = "║" + titulo.center(ancho_total) + "║"
     print(linea2)
     contenido += linea2 + "\n"
-    linea3 = "╠" + "═" * ancho + "╣"
+    
+    # Separador entre título y contenido
+    linea3 = "╠" + "═" * ancho_col1 + "╦" + "═" * ancho_col2 + "╣"
     print(linea3)
     contenido += linea3 + "\n"
+    
+    # Filas de la cuadrícula
     for i in range(1, 11):
-        resultado = f"{numero} x {i} = {numero * i}"
-        linea = "║" + resultado.ljust(ancho) + "║"
+        # Formateamos los espacios para que todo quede perfectamente alineado
+        operacion = f" {numero} x {i:<2}"
+        resultado = f" {numero * i:<3}"
+        
+        linea = f"║{operacion:<{ancho_col1}}║{resultado:<{ancho_col2}}║"
         print(linea)
         contenido += linea + "\n"
-    linea4 = "╚" + "═" * ancho + "╝"
+        
+    # Piso de la tabla
+    linea4 = "╚" + "═" * ancho_col1 + "╩" + "═" * ancho_col2 + "╝"
     print(linea4)
     contenido += linea4 + "\n"
+    
     guardar_creacion("Tabla de Multiplicar", contenido)
 
 
