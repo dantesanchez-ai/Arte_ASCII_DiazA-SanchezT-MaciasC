@@ -218,6 +218,7 @@ def marco_decorativo(texto, estilo):
         
     guardar_creacion("Marco Decorativo", contenido)
 
+
 def tabla_multiplicar_visual(numero):
     """
     Genera una tabla de multiplicar con formato visual atractivo.
@@ -248,16 +249,6 @@ def tabla_multiplicar_visual(numero):
     guardar_creacion("Tabla de Multiplicar", contenido)
 
 
-    # Ejemplo:
-    # ╔════════════════════════╗
-    # ║  TABLA DEL 5           ║
-    # ╠════════════════════════╣
-    # ║  5 x  1 =  5           ║
-    # ║  5 x  2 = 10           ║
-    # ║  ...                   ║
-    # ╚════════════════════════╝
-
-
 def menu_texto_artistico():
     """Menú para generadores de texto artístico"""
     print("\n--- GENERADORES DE TEXTO ---")
@@ -272,11 +263,12 @@ def menu_texto_artistico():
         generar_banner(texto)
     elif opcion == "2":
         texto = input("Ingrese el texto para el marco: ")
-        print("Estilos disponibles:")
+        print("\nEstilos disponibles:")
         print("1. Estilo Clásico")
         print("2. Estilo Estrella")
         print("3. Estilo Asterisco")
-        estilo = int(input("Seleccione un estilo (1-3): "))
+        print("4. Estilo Diamante (Destacado)")
+        estilo = int(input("Seleccione un estilo (1-4): "))
         marco_decorativo(texto, estilo)
     elif opcion == "3":
         numero = int(input("Ingrese el número para la tabla de multiplicar (1-10): "))
