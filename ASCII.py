@@ -194,7 +194,7 @@ def marco_decorativo(texto, estilo):
         linea1 = "*" + techo + "*"
         print(linea1)
         contenido += linea1 + "\n"
-        linea2 = "* " + texto + "  *"
+        linea2 = "*  " + texto + "  *  "
         print(linea2)
         contenido += linea2 + "\n"
         linea3 = "*" + techo + "*"
